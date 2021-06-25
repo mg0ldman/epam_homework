@@ -141,3 +141,6 @@ cython_debug/
 .idea/
 bin/
 pyvenv.cfg
+*.pyc
+pycache/
+pycache
