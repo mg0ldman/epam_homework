@@ -22,7 +22,8 @@ def create_custom_range(*args):
     if k == 2:
         result = args[0][: args[0].index(args[1])]
     elif k == 3:
-        result = args[0][args[0].index(args[1]) : args[0].index(args[2])]
+        result = args[0][args[0].index(args[1]): args[0].index(args[2])]
     elif k == 4:
-        result = args[0][args[0].index(args[1]) : args[0].index(args[2]) : args[-1]]
+        result = args[0][args[0].index(args[1]):
+                         args[0].index(args[2]): args[-1]]
     return list(map(str, result))

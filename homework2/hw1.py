@@ -21,7 +21,8 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
         ]
         for i in words:
             words_stats[i] = len(set(i.lower()))
-    most_popular = sorted(words_stats.items(), key=lambda x: x[1], reverse=True)[:10]
+    most_popular = sorted(words_stats.items(), key=lambda x: x[1],
+                          reverse=True)[:10]
     return [x[0] for x in most_popular]
 
 
@@ -71,4 +72,5 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
                 words_stats[i] = 1
             else:
                 words_stats[i] += 1
-    return sorted(words_stats.items(), key=lambda x: x[1], reverse=True)[:1][0][0]
+    return sorted(words_stats.items(), key=lambda x: x[1],
+                  reverse=True)[:1][0][0]
