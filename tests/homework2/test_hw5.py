@@ -17,5 +17,6 @@ from homework2.hw5 import create_custom_range
     ],
 )
 def test_valid_sequences(args, expected_result):
-    """Testing that the function returns correct results with some sample data"""
+    """Testing that the function returns correct results
+    with some sample data"""
     assert create_custom_range(*args) == expected_result

@@ -10,7 +10,8 @@ from typing import List
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
-    """The function returns 10 longest words consisting of largest number of unique symbols"""
+    """The function returns 10 longest words
+    consisting of largest number of unique symbols"""
     words_stats = {}
     with open(file_path) as fi:
         words = [

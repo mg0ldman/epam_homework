@@ -15,7 +15,8 @@ from typing import List, Tuple
 
 
 def major_and_minor_elem(inp: List) -> Tuple[int, int]:
-    """The function returns the most common and the least common elements of an array"""
+    """The function returns the most common and
+    the least common elements of an array"""
     if not inp:
         return None
     elements_stats = {}

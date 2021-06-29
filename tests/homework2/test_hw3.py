@@ -43,7 +43,8 @@ from homework2.hw3 import create_combinations
     ],
 )
 def test_valid_sequences(sequences, expected_result):
-    """Testing that the function returns correct results with some sample data"""
+    """Testing that the function returns correct results
+    with some sample data"""
     assert create_combinations(*sequences) == expected_result
 
 

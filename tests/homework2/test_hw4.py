@@ -1,5 +1,3 @@
-import pytest
-
 from homework2.hw4 import cache
 
 

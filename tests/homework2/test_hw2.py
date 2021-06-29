@@ -8,7 +8,8 @@ from homework2.hw2 import major_and_minor_elem
     [(([3, 2, 3]), (3, 2)), (([2, 2, 1, 1, 1, 2, 2]), (2, 1))],
 )
 def test_valid_sequences(sequence, expected_result):
-    """Testing that the function returns correct results with some sample data"""
+    """Testing that the function returns correct results
+    with some sample data"""
     assert major_and_minor_elem(sequence) == expected_result
 
 
