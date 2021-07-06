@@ -23,13 +23,13 @@ def test_sample_data_longest_diverse_words():
 def test_sample_data_rarest_char():
     """Testing that the function returns a correct result
     with a least popular symbol based on the data from a sample file"""
-    assert get_rarest_char("homework2/data.txt") == "S"
+    assert get_rarest_char("homework2/data.txt") == "›"
 
 
 def test_sample_data_punctuation_chars():
     """Testing that the function returns a correct result
     with a punctuation chars count based on the data from a sample file"""
-    assert count_punctuation_chars("homework2/data.txt") == 5305
+    assert count_punctuation_chars("homework2/data.txt") == 5475
 
 
 def test_sample_data_non_ascii_chars():

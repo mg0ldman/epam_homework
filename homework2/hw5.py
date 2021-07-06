@@ -13,17 +13,24 @@ assert = custom_range(string.ascii_lowercase, 'p', 'g', -2)
 """
 
 
-def create_custom_range(*args):
+def create_custom_range(seq, *args):
     """The function accepts any iterable of unique values and
     then it behaves as a range function"""
-    k = len(args)
-    if k < 1:
-        raise TypeError("custom range expected 1 argument, got 0")
-    if k == 2:
-        result = args[0][: args[0].index(args[1])]
-    elif k == 3:
-        result = args[0][args[0].index(args[1]): args[0].index(args[2])]
-    elif k == 4:
-        result = args[0][args[0].index(args[1]):
-                         args[0].index(args[2]): args[-1]]
-    return list(map(str, result))
+    def parse_args(*args):
+        k = len(args)
+        start = None
+        step = 1
+        if k == 1:
+            stop = args[0]
+        if k == 2:
+            start = args[0]
+            stop = args[1]
+        if k == 3:
+            start = args[0]
+            stop = args[1]
+            step = args[-1]
+        return start, stop, step
+    start, stop, step = parse_args(*args)
+    if not start:
+        return list(seq[:seq.index(stop):step])
+    return list(seq[seq.index(start):seq.index(stop):step])
