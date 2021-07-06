@@ -7,7 +7,7 @@ Given a file containing text. Complete using only default collections:
     5) Find most common non ascii char for document
 """
 from typing import List
-import unicodedata
+from unicodedata import category
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
@@ -42,7 +42,7 @@ def count_punctuation_chars(file_path: str) -> int:
     file = open(file_path, encoding='unicode-escape')
     for line in file:
         for i in line:
-            if unicodedata.category(i)[0] == 'P':
+            if category(i)[0] == 'P':
                 cnt += 1
     return cnt
 
