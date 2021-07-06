@@ -13,7 +13,8 @@ from homework1.task04 import check_sum_of_four
     ],
 )
 def test_valid_sequences(sequences, expected_result):
-    """Testing that a valid Fibonacci sequence returns True and an invalid sequence returns False"""
+    """Testing that the function returns a correct result
+     with non empty lists"""
     assert check_sum_of_four(*sequences) == expected_result
 
 

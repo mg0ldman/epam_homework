@@ -15,6 +15,13 @@ from typing import Tuple
 def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
     """The function returns minimum and maximum values from a file
     with line-delimited integers"""
+    min_value = float('inf')
+    max_value = float('-inf')
     with open(file_name) as fi:
-        values = [int(i) for line in fi for i in line.split()]
-    return min(values), max(values)
+        for num in fi:
+            num = int(num)
+            if num < min_value:
+                min_value = num
+            elif num > max_value:
+                max_value = num
+    return min_value, max_value

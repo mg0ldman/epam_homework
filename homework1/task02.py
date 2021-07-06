@@ -7,11 +7,20 @@ We guarantee, that the given sequence contain >= 0 integers inside.
 from typing import Sequence
 
 
+def generate_fib(start_value):
+    """Fibonacci sequence generator"""
+    a, b = 0, 1
+    while True:
+        if a >= start_value:
+            yield a
+        a, b = b, a+b
+
+
 def check_fibonacci(data: Sequence[int]) -> bool:
     """The function checks if a given sequence is a Fibonacci one"""
-    if len(data) < 3 or (data[0] != 0 or data[1] != 1):
+    if len(data) < 3:
         return False
-    for i in range(len(data) - 2):
-        if data[i] + data[i + 1] != data[i + 2]:
+    for values_from_fib, values_from_data in zip(data, generate_fib(data[0])):
+        if values_from_fib != values_from_data:
             return False
     return True
