@@ -28,6 +28,10 @@ You will learn:
 
 
 def read_magic_number(path: str) -> bool:
+    """Function gets file path as an argument.
+    Reads the first line of the file.
+    If the first line is a number that's within an interval [1, 3)*
+    it should return True and False otherwise."""
     try:
         with open(path, 'r') as file:
             for num in file:
