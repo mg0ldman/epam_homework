@@ -20,6 +20,23 @@ def make_filter(**keywords):
     filter_funcs = []
     for key, value in keywords.items():
         def keyword_filter_func(item, key=key, value=value):
-            return item[key] == value
+            return item.get(key) == value
         filter_funcs.append(keyword_filter_func)
     return Filter(*filter_funcs)
+
+sample_data = [
+     {
+         "name": "Bill",
+         "last_name": "Gilbert",
+         "occupation": "was here",
+         "type": "person",
+     },
+     {
+         "is_dead": True,
+         "kind": "parrot",
+         "type": "bird",
+         "name": "polly"
+     }
+]
+
+print(make_filter(name='polly', type='bird').apply(sample_data))
