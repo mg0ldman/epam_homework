@@ -14,7 +14,7 @@ def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
     , with maximal sum"""
     if not nums:
         return 0
-    max_sum = float('-inf')
+    max_sum = nums[0]
     for i in range(len(nums)):
         for j in range(k):
             if sum(nums[i: i + k][j:]) > max_sum:
