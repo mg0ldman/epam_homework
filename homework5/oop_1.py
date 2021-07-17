@@ -56,27 +56,58 @@ class Homework:
 
 
 class Student:
-    """A class that helps create student's profiles"""
+    """A class that helps create student's profiles
+
+    :param last_name: student's lastname
+    :type last_name: str
+    :param first_name: student's firstname
+    :type first_name: str
+    """
+
     def __init__(self, last_name, first_name):
+        """Constructor method"""
         self.last_name = last_name
         self.first_name = first_name
 
-    def do_homework(self, task_name):
-        """Returns task's name if it's not expired or prints
-        'You are late' otherwise"""
-        if task_name.is_active():
-            return task_name
+    def do_homework(self, homework):
+        """Returns homework's text if
+        the task is not expired or prints 'You are late' otherwise
+
+        :param homework: an instance of a :class:'Homework'
+        :type homework: :class:'Homework'
+        :return: instance of a :class:'HomeworkResult'
+        :rtype: str or None if the task is expired ('You are late' printed)
+        if the task is not expired,
+        """
+        if homework.is_active():
+            return homework.text
         else:
             print('You are late')
 
 
 class Teacher:
-    """A class that helps create teacher's profiles"""
+    """A class that helps create teacher's profiles
+
+    :param last_name: student's lastname
+    :type last_name: str
+    :param first_name: student's firstname
+    :type first_name: str
+    """
     def __init__(self, last_name, first_name):
+        """Constructor method
+        """
         self.last_name = last_name
         self.first_name = first_name
 
     def create_homework(self, text, deadline):
-        """Creates Homework objects, with the description and deadline"""
+        """Creates an object of :class: 'Homework'
+        with the description and deadline.
+
+        :param text: assignment's description
+        :type text: str
+        :param deadline: number of days to complete the assignment
+        :type deadline: int
+        :return: a Homework object
+        :rtype: instance of a :class:'Homework'"""
         homework = Homework(text, deadline)
         return homework
