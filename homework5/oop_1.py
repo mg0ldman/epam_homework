@@ -37,7 +37,15 @@ from datetime import datetime, timedelta
 
 
 class Homework:
-    """A class that helps create Homework tasks"""
+    """A class that helps create Homework tasks, based on text and deadline.
+    Used in :class:'Teacher'
+    :param text: assignment's description
+    :type text: str
+    :param deadline: number of days to complete the assignment
+    :type deadline: int
+    :param created: an exact day and time when assignment was created
+    :type created: :class:'datetime.datetime'
+    """
     def __init__(self, text, deadline):
         self.text = text
         if deadline < 1:
@@ -47,7 +55,11 @@ class Homework:
         self.created = datetime.now()
 
     def is_active(self):
-        """Checks whether the task is expired or not"""
+        """Checks whether the assignment is expired or not,
+        based on its deadline parameter
+        :return: 'True' if the task is not expired, 'False' otherwise
+        :rtype: bool
+        """
         if int(self.deadline[0]) > 0:
             return self.created + \
                 timedelta(days=int(self.deadline.split()[0])) > datetime.now()
@@ -65,7 +77,8 @@ class Student:
     """
 
     def __init__(self, last_name, first_name):
-        """Constructor method"""
+        """Constructor method
+        """
         self.last_name = last_name
         self.first_name = first_name
 
