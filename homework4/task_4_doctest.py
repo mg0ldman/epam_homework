@@ -19,13 +19,25 @@ assert fizzbuzz(5) == ["1", "2", "fizz", "4", "buzz"]
 from typing import List
 
 
+def check_fizz_or_buzz(n: int):
+    "Checks if a given number is fuzz/buzz or fizzbuzz"
+    if n % 5 == 0 and n % 3 == 0:
+        return 'fizzbuzz'
+    if n % 3 == 0:
+        return 'fizz'
+    if n % 5 == 0:
+        return 'buzz'
+    else:
+        return n
+
+
 def fizzbuzz(n: int) -> List[str]:
     """
     Function that takes a number N and returns N FizzBuzz numbers
 
     >>> fizzbuzz(15)
-    [1, 2, 'fizz', 4, 'buzz', 'fizz', 7, 8, 'fizz', 'buzz',
-    11, 'fizz', 13, 14, 'fizzbuzz']
+    [1, 2, 'fizz', 4, 'buzz', 'fizz', 7, 8, 'fizz',\
+ 'buzz', 11, 'fizz', 13, 14, 'fizzbuzz']
     >>> fizzbuzz(0)
     []
     >>> fizzbuzz(-1)
@@ -43,5 +55,4 @@ def fizzbuzz(n: int) -> List[str]:
     if n < 0:
         raise ValueError('"n" argument should be a positive number!')
 
-    return ['fizzbuzz' if i % 5 == 0 and i % 3 == 0 else 'fizz' if i % 3 == 0
-            else 'buzz' if i % 5 == 0 else i for i in range(1, n+1)]
+    return [check_fizz_or_buzz(n) for n in range(1, n+1)]
