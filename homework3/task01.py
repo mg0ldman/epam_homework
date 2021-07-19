@@ -18,7 +18,7 @@ def cache(times: int) -> Callable:
             if cnt == 0:
                 cache_storage.clear()
                 cnt += 1
-                cache_storage.append((func, func(*args,**kwargs)))
+                cache_storage.append((func, func(*args, **kwargs)))
             if times >= cnt > 0:
                 cnt += 1
             else:
