@@ -13,12 +13,12 @@ def cache(times: int) -> Callable:
                          'than or equal to zero')
 
     def wrapper(func):
-        def cached_func(*args):
+        def cached_func(*args, **kwargs):
             nonlocal cnt
             if cnt == 0:
                 cache_storage.clear()
                 cnt += 1
-                cache_storage.append((func, func(*args)))
+                cache_storage.append((func, func(*args,**kwargs)))
             if times >= cnt > 0:
                 cnt += 1
             else:
