@@ -12,7 +12,8 @@ def test_data():
     """Creating python fixture with sample data"""
     presidents = TableData(database_name='tests/homework8/example.sqlite',
                            table_name='presidents')
-    books = TableData(database_name='tests/homework8/example.sqlite', table_name='books')
+    books = TableData(database_name='tests/homework8/example.sqlite',
+                      table_name='books')
     return TestData(presidents, books)
 
 
